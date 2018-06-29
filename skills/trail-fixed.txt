@@ -1,0 +1,271 @@
+1.1  I can help pack a rucksack for a day hike.
+
+1.2  I can dress myself for a day hike.
+
+1.3  I can list what food to bring on a day hike.
+
+1.4  I can follow directions on a day hike.
+
+1.5  I can identify the main parts of a compass.
+
+1.6  I can behave safely while hiking.
+
+1.7  I can be responsible for myself while we are hiking.
+
+1.8  I can explain the buddy system.
+
+1.9  I can recognize the main distress signals.
+
+1.10  I have attended at least two hikes.
+
+2.1  I know what gear to bring for a hike depending on the weather.
+
+2.2  I can show how to take care of all personal gear needed for a day hike.
+
+2.3  I can read a simple map.
+
+2.4  I can use a compass to find basic directions.
+
+2.5  I can obtain a weather forecast.
+
+2.6  I can be a responsible member of my team while we are hiking.
+
+2.7  I can get help if someone is hurt.
+
+2.8  I have attended at least three hikes.
+
+2.9  I can explain why one brings certain foods and drinks on hikes.
+
+3.1  I can pack a rucksack for a day hike.
+
+3.2  I can explain what clothes to bring for a day hike depending on the weather.
+
+3.3  I can follow a route on an orienteering map.
+
+3.4  I can identify the features of a topographical map.
+
+3.5  I can demonstrate the basic use of a GPS unit.
+
+3.6  I can teach another youth how to find directions by using a compass.
+
+3.7  I can explain the effect of weather on hiking activities.
+
+3.8  I can be responsible for myself and aware of my surroundings while hiking.
+
+3.9  I can explain the main principles of Leave No Trace.
+
+3.10  I can treat simple cuts and scratches.
+
+3.11  I know how to avoid becoming lost, and I know what to do if I get lost.
+
+3.12  I have attended at least thee hiking activities, one of which involves hiking on hilly trails.
+
+4.1  I can teach another youth what to pack for a day hike.
+
+4.2  I can pack a rucksack for a weekend hike.
+
+4.3  I can show how to care for all my personal hiking equipment needed for a weekend hike.
+
+4.4  I know how to plan for and avoid food allergies in a group hike.
+
+4.5  I can use a map and compass together for navigation.
+
+4.6  I can teach another youth how to follow a route on an orienteering map.
+
+4.7  I can keep a map dry and safe from the elements.
+
+4.8  I can locate a waypoint that has been pre-programmed into a GPS unit.
+
+4.9  I can plan and bring appropriate personal gear to use on a hike based on weather forecasts for the hiking area.
+
+4.10  I can cross various terrains, such as wet or rocky ground.
+
+4.11  I can apply the Leave No Trace principles while hiking.
+
+4.12  I can minimize trail hazards for myself and others as encountered (trip hazards on the trail, minimizing branch whip while moving them out of the way, etc.—overall trail etiquette).
+
+4.13  I can be responsible for younger or less experienced members of my team while we are hiking.
+
+4.14  I can treat simple sprains and blisters.
+
+4.15  I can identify the different emergency services that are available and how and when to call them.
+
+4.16  I can build or find an emergency shelter.
+
+4.17  I have attended three hikes (including an overnight).
+
+4.18  I can lead a leg of a hike.
+
+4.19  I can help plan a day hike.
+
+5.1  I can explain how the weather affects the equipment I bring on a weekend hike.
+
+5.2  I can show what group equipment to bring on a weekend hike and explain why each item is needed.
+
+5.3  I can show how to use group equipment correctly.
+
+5.4  I can select appropriate footwear for various hikes.
+
+5.5  I can demonstrate how to use different types of lightweight stoves to prepare a meal.
+
+5.6  I can keep food and food preparation materials hygienic.
+
+5.7  I can use a map and compass to find my position on the ground.
+
+5.8  I can plot a proposed hiking route on a map and obtain the required compass bearings.
+
+5.9  I can input a given waypoint into a GPS and then find it.
+
+5.10  I can teach another youth the basic use of a GPS unit.
+
+5.11  I can find directions without a compass.
+
+5.12  I can describe the dangers of weather on hikes.
+
+5.13  I can plan effectively and recommend appropriate gear for my group to take based on weather forecasts for the hike area.
+
+5.14  I know when and how to cross a river.
+
+5.15  I can show how and explain when to use the main distress signals.
+
+5.16  I can be an active member of my team while hiking.
+
+5.17  I can recognize and respond to hazards from flora and fauna.
+
+5.18  I have taken part in three hikes (including an overnight).
+
+5.19  I have written a log for at least two of these activities.
+
+5.20  I can help plan an overnight hike.
+
+5.21  I can help choose a suitable hiking destination.
+
+5.22  I can hike on steep trails safely, using appropriate gear as required.
+
+6.1  I can teach another youth what to pack for a weekend hike.
+
+6.2  I can show what group emergency equipment we can carry on a weekend hike, and how to use each item.
+
+6.3  I can teach another youth how to care for, store and maintain the group equipment.
+
+6.4  I can look after my hiking footwear.
+
+6.5  I can select and maintain my pack for various hiking adventures.
+
+6.6  I know how much water to drink and the effects and treatment of dehydration.
+
+6.7  I know how to use different methods to treat water.
+
+6.8  I can avoid hyponatremia by ensuring proper planning for the hike.
+
+6.9  I can obtain coordinates from a point of interest on a topographical map so that it can be inputted into a GPS unit.
+
+6.10  I can demonstrate the limitations of the compass and other navigation tools.
+
+6.11  I can teach another youth how to find his or her position on the ground using a map and compass.
+
+6.12  I can recognize changing weather patterns while hiking.
+
+6.13  I can show different methods for crossing waterways.
+
+6.14  I can teach the principles of Leave No Trace.
+
+6.15  I can recognize unstable or elevated risk areas (e.g. slick trails, icy terrain) and either avoid them or minimize the risk in crossing the area with accepted use of gear and technique.
+
+6.16  I can recognize and treat hypothermia, hyperthermia, sunstroke, dehydration and asthma, or other medical conditions relevant to my team.
+
+6.17  I can be responsible for myself and my team while hiking.
+
+6.18  I can describe the limitations of my team.
+
+6.19  I have taken part in at least six hiking activities, at least one of which was a two-night hike.
+
+6.20  I have written logs for all of these activities.
+
+6.21  I can plan and lead a day hike.
+
+6.22  I can help organize the transportation required for an activity.
+
+7.1  I can pack a rucksack for a hiking expedition of more than two nights.
+
+7.2  I can inspect group emergency equipment for a hiking expedition of more than two nights.
+
+7.3  I can show what group equipment to bring on a hiking expedition of more than two nights and explain why each item is needed.
+
+7.4  I can choose appropriate lightweight hiking equipment.
+
+7.5  I can plan and cook a variety of meals on a hiking expedition of more than two nights.
+
+7.6  I can explain how much food is needed on hiking expeditions of various lengths.
+
+7.7  I can navigate at night or in poor visibility.
+
+7.8  I can use a topographical map to plan a hike in unfamiliar territory.
+
+7.9  I can predict weather changes without the use of weather forecasts.
+
+7.10  I can make changes to my group’s outing for safety reasons based on changing weather patterns that can occur during the activity.
+
+7.11  I can teach trail-travel techniques for various trail types.
+
+7.12  I can teach appropriate trail etiquette to other Scouts.
+
+7.13  I can assess risk and be aware of group safety.
+
+7.14  I can plan escape routes.
+
+7.15  I have participated in at least five hikes of various lengths.
+
+7.16  I have taken, planned and led one hike without a Scouter.
+
+7.17  I have taken part in an unaccompanied but supervised two-night hike.
+
+7.18  I have written logs for all of these activities.
+
+7.19  I can plan and lead an overnight hike.
+
+7.20  I can organize the transport required for an activity.
+
+7.21  I can research and find information about the hiking destination.
+
+7.22  I can create a budget for a hiking trip for my group.
+
+8.1  I can teach another youth how to pack for a hiking expedition.
+
+8.2  I can make recommendations to improve group equipment.
+
+8.3  I can navigate accurately and safely over rough terrain in any type of weather, and at night.
+
+8.4  I can teach another youth how to plan a hike in unfamiliar territory using the appropriate tools.
+
+8.5  I can teach how to read weather patterns outdoors without the use of weather forecasts.
+
+8.6  I have completed a Wilderness First Aid course.
+
+8.7  I can follow the procedures in the event of an accident. 
+
+8.8  I have taken part in at least six hiking adventures of various lengths, two of which include overnight components.
+
+8.9  I can lead a hiking expedition of several nights.
+
+8.10  I can take responsibility for our group on a hiking adventure.
+
+8.11  I have written logs for all of these activities.
+
+8.12  I can follow Scouts Canada procedures for a hiking trip.
+
+9.1  I know what equipment is required for various hiking expeditions and the correct use and care of this equipment.
+
+9.2  I can be responsible for others in various situations on hiking expeditions longer than two nights.
+
+9.3  I can assess risk and take appropriate action to ensure safety.
+
+9.4  Where possible, I have taken part in and contributed to the planning of an expedition to 3250 m.
+
+9.5  I can practise basic winter hiking skills.
+
+9.6  I have a logbook detailing at least 20 hikes and expeditions that I have undertaken since Stage 7.
+
+9.7  I can create an exciting expedition while catering for everyone’s needs.
+
+9.8  I can budget, prepare and manage every aspect of the expedition without input from Scouters.
