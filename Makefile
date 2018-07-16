@@ -5,8 +5,7 @@ run:
 
 TESTED_FILES = \
 	       app/routes.py \
-	       etsy_api.py \
-	       exchange.py \
+	       badge_tracker.py \
                config.py
 
 
@@ -16,22 +15,19 @@ test:
 	       --cov-report term-missing \
 	       --flake8 \
 	       --pep8 \
-	       $(addprefix etsy-check/, $(TESTED_FILES))
+	       $(addprefix skills/, $(TESTED_FILES))
 
 build: test
-	sudo docker build -t ajh-etsy .
+	sudo docker build -t badge-tracker .
 
 reformat:
-	black etsy-check
+	black .
 
 publish: test
-	sudo docker tag ajh-etsy alexharford/etsy-check:latest
-	sudo docker push alexharford/etsy-check:latest
+	sudo docker tag badge-tracker alexharford/badge-tracker:latest
+	sudo docker push alexharford/badge-tracker:latest
 
 docker-run: test
-	source ./creds.sh && \
-	sudo docker run --rm --name ajh-etsy \
-		-e ETSY_API_KEY=$${ETSY_API_KEY} \
-		-e CURRENCY_API_KEY=$${CURRENCY_API_KEY} \
+	sudo docker run --rm --name badge-tracker \
 		-p 5000:5000 \
-		ajh-etsy
+		badge-tracker
