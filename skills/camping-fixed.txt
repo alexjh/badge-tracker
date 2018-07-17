@@ -1,0 +1,115 @@
+1.1  I can collect small sticks for a campfire.
+1.2  I can follow directions while at camp.
+1.3  I can help pack a bag for camp.
+1.4  I can keep my camping gear neat and tidy.
+1.5  I can care for my basic personal gear on an overnight camp.  system at camp.
+1.6  I can explain the use of the buddy 
+1.7  I can describe the different emergency services in the camp area and how to call them.
+1.8  I can set out my sleeping area for good night’s sleep at camp.
+1.9  I have spent one night at camp.
+2.1  I can explain the importance of following directions at camp.
+2.10  I can help pitch a tent at camp.
+2.11  I behave safely around fires at camp.
+2.12  I can identify and explain the elements of the fire triangle.
+2.13  I have spent two nights in a tent at camp.
+2.2  I can list what personal gear to bring on an overnight camp.
+2.3  I can look after all my personal gear while at camp.
+2.4  I can explain what clothing to bring on an overnight camp.
+2.5  I can explain how to use Canada’s Food Guide at camp and help to plan a nutritious meal.
+2.6  I can describe safe food handling and hygiene at camp.
+2.7  I can help prepare food for cooking at camp and be safe while cooking at camp. 
+2.8  I can get help if someone is hurt while at camp.
+2.9  I can identify the main parts of a tent.
+3.1  I can help others learn about camping.
+3.10  I can describe how weather can affect our camp.
+3.11  I can discuss the seven principles of Leave No Trace. 
+3.12  I can show how to pitch a tent (with help from others). 
+3.13  I can make a hot drink on a campfire at camp.
+3.14  I can clean up a fire area after camp.
+3.15  I have spent seven nights at camp.
+3.2  I can audit my personal gear for camp.
+3.3  I can pack a bag for camp.
+3.4  I can help plan a basic balanced meal for camp.
+3.5  I can demonstrate how to store food at camp.
+3.6  I can assist in cooking a meal at camp.
+3.7  I can be safe while cooking at camp.
+3.8  I can demonstrate first aid treatment for a minor cut or scratch at camp, and explain how to prevent infection and describe the signs of infections.
+3.9  I can get a weather forecast for a camp. 
+4.1  I can demonstrate shared teamwork while at camp.
+4.10  I can assist pitching tent with my team at camp.
+4.11  I can demonstrate safe practices around fires and cooking equipment to minimize the risk of burns, scalds and other injuries.
+4.12  I have spent 12 nights at camp. 
+4.2  I can list the personal gear for a standing camp.
+4.3  I can show how to use group gear safely at camp.
+4.4  I can show proper use, care and maintenance of group gear during and in between camps.
+4.5  I can use basic camp tools safely.  and explain my reasoning.
+4.6  I can store and cook food safely at camp.
+4.7  I can demonstrate how to treat cuts and minor burns, and prevent infection at camp.
+4.8  I can explain and demonstrate the seven principles of Leave No Trace while at camp.
+4.9  I can find the best place to pitch a tent at camp 
+5.1  I have assisted in the organization of two camps for my team or others.
+5.10  I can describe the weather forecast and record the weather for the duration of camp.
+5.11  I can demonstrate the appropriate measures for minimizing and dealing with food waste, solid waste and human waste, in keeping with Leave No Trace principles.
+5.12  I can pitch a variety of tents and shelters.
+5.13  I can demonstrate measures to secure tents for inclement weather. 
+5.14  I can select a suitable location for a standing or lightweight camp.
+5.15  I can show the best layout for a campsite and explain my reasoning.
+5.16  I can light, maintain and use a fire to cook a balanced meal at camp.
+5.17  I have spent 18 nights at camp.
+5.2  I can assist in planning a camp program of activities.
+5.3  I can show the personal gear needed for an overnight lightweight camp.
+5.4  I can explain how the type of camp affects the choice of equipment needed.
+5.5  I can use, maintain and store tools safely at camp.
+5.6  I can teach another Scout what to pack for a camp.
+5.7  I can plan a balanced menu for camp with a team.
+5.8  I can demonstrate how to use different cooking methods (with different fuel types) at camp.
+5.9  I can prepare for and help prevent heat-, cold- and sun-related injuries at camp.
+6.1  I can teach camping skills with my team at camp.
+6.10  I can teach another youth to prepare a meal to be cooked on a fire or improvised stove. 
+6.11  I can demonstrate treatment of heat-, cold- and sun-related injuries at camp.
+6.12  I demonstrate responsibility for myself at camp.
+6.13  I can recognize weather signs and prepare for their impact on camp activities.
+6.14  I can travel while following the seven principles of Leave No Trace.
+6.15  I can describe how to choose the best tent for a specific camp.
+6.16  I can teach how to pitch a tent at camp.
+6.17  I can help organize campsite setup and takedown.
+6.18  I can help research proposed camping areas and locate services.
+6.19  I have spent 24 nights at camp in three different season, including a week-long camp, while completing this stage.
+6.2  I can plan and lead a weekend camp.
+6.20  I have spent two consecutive nights lightweight camping while completing this stage.
+6.3  I can plan a program of activities for camp.
+6.4  I can assist with the organization of transportation to camp.
+6.5  I can explain group emergency equipment for a camp.
+6.6  I can demonstrate to others how to care for, store and maintain group gear for camp.
+6.7  I can prepare a list of personal and group gear required for a standing camp.
+6.8  I can help plan a menu and purchase food for a weekend camp.
+6.9  I can demonstrate to others how to use a variety of cooking stoves at camp and explain to others when each type is most effective. 
+7.1  I can plan and lead a two-night backcountry camp.
+7.10  I can take responsibility for myself and my team while at camp.
+7.11  I can demonstrate how to plan for and adapt to changing weather patterns at camp.
+7.12  I can teach the seven principles of Leave No Trace as they apply to a camp.
+7.13  I can teach another youth tent selection by camp type.
+7.14  I can organize campsite setup and takedown.
+7.15  I have spent 30 nights at camp in all four seasons, including two nights without a Scouter while completing this stage.
+7.2  I can plan activities for at least two different types of camps.
+7.3  I can organize required transportation for camp.
+7.4  I can help plan and lead a backcountry camp of a minimum of two consecutive nights.
+7.5  I can audit group emergency equipment for camp.
+7.6  I can teach another youth how to care for, store and maintain group gear needed for camps. 
+7.7  I can create personal and group gear lists for lightweight camping excursions.
+7.8  I can teach the use of various stoves and their effective use to another youth at camp.
+7.9  I can help prepare and describe an emergency plan for expected risks and hazards at camp.
+8.1  I have mentored someone else who was responsible for planning and leading a camp.
+8.2  I can source, compare and organize transportation for camp activities.
+8.3  I can describe an expedition plan and how the needs of participants have been met in its development.
+8.4  I can prepare for a specialized expedition.
+8.5  I can make recommendations to improve group equipment for various camp types.
+8.6  I can determine if specialized training is required options for local and foreign locations.
+8.7  I can use knowledge of weather patterns to change activities as required at camp.
+8.8  I have spent 36 nights on various types of camps.
+9.1  I can source amenities and local places of interest for various camp types.
+9.2  I can budget, prepare and manage every aspect of a camping expedition.
+9.3  I have acted as the outing leader on at least two camping expeditions.
+9.4  I can plan and execute camping expeditions in all types of locations and regions, including internationally.
+9.5  I am able to source local training required for the specific camp or activity.
+9.6  I have spent 42 nights on various types of camps.
