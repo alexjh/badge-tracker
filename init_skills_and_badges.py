@@ -3631,12 +3631,15 @@ for badge in badges:
         b = Badge(description=badge, level=level)
         db.session.add(b)
 
+print("Adding badges")
 db.session.commit()
 
 for skill in skills:
+    print(f"Adding skill: {skill}")
     badge = Badge.query.filter_by(description=skill[0], level=skill[1]).first()
     s = Skill(description=skill[3])
-    requirement = BadgeRequirement(position=skill[2], badges=badge, skills=s)
+    requirement = BadgeRequirement(position=skill[2], badge=badge, skill=s)
     db.session.add(s)
     db.session.add(requirement)
-    db.session.commit()
+
+db.session.commit()
