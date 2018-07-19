@@ -14,6 +14,8 @@ pyjwt = "*"
 flask-bootstrap = "*"
 requests = "*"
 flask-vue = "*"
+flask-admin = "*"
+flask-datepicker = "*"
 
 [dev-packages]
 pytest = "*"

@@ -9,3 +9,6 @@ def clear_data(session):
         print("Clear table %s" % table)
         session.execute(table.delete())
         session.commit()
+
+
+clear_data(db.session)

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <ul>
+    {% for y in youth %}
+      <li><a href="{{ url_for('youth_details', youth_id=y.id) }}">{{y.name}}</a></li>
+    {% endfor %}
+    </ul>
+    </p>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>User: {{user.username}}</h1>
+    <p>Email: {{user.email}}</p>
+    <p>Groups:
+    <ul>
+        {% for group in user.groups %}
+            <li><a href="{{ url_for('group', group_id=group.id) }}">{{group.name}}</a></li>
+        {% endfor %}
+    </ul>
+    </p>
+{% endblock %}

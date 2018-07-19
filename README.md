@@ -1,5 +1,17 @@
 # Badge Tracker
 
+* TODO
+  [ ] User list
+  [ ] Group list
+  [ ] Youth list
+      * List badges, skills
+  [ ] Skill list
+  [ ] Badge list
+  [ ] Skill Record
+  [ ] Add user, group, youth
+  [ ] Badge Progress for youth
+
+
 ## DB Layout
 
 * groups (name, id)

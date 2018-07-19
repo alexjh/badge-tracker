@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <ul>
+        {% for badge in badges %}
+		<li><a href="{{ url_for('badge', badge_id=badge.id) }}">{{badge.description}} - {{badge.level}}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

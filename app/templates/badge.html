@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Badge: {{badge.description}} - {{badge.level}}</h1>
+    <p>Requirements:
+    <ul>
+        {% for r in badge.requirements %}
+		<li><a href="{{url_for('skill', skill_id=r.skill.id)}}">{{r.skill.description}}</a></li>
+        {% endfor %}
+    </ul>
+    </p>
+{% endblock %}

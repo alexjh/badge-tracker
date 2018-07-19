@@ -28,8 +28,13 @@ class User(db.Model):
 
 skill_achievements = db.Table(
     "skill_achievements",
-    db.Column("skill_record_id", db.Integer, db.ForeignKey("skill_record.id")),
-    db.Column("youth_id", db.Integer, db.ForeignKey("youth.id")),
+    db.Column(
+        "skill_record_id",
+        db.Integer,
+        db.ForeignKey("skill_record.id"),
+        primary_key=True,
+    ),
+    db.Column("youth_id", db.Integer, db.ForeignKey("youth.id"), primary_key=True),
 )
 
 
@@ -39,9 +44,12 @@ class Youth(db.Model):
     group_id = db.Column(db.Integer, db.ForeignKey("group.id"))
     group = db.relationship("Group", backref="youth", lazy=True, uselist=False)
 
-    # skills = db.relationship(
-    #     "SkillAchievements", secondary=skill_achievements, lazy="subquery"
-    # )
+    skill_records = db.relationship(
+        "SkillRecord",
+        secondary=skill_achievements,
+        lazy="subquery",
+        backref=db.backref("youth", lazy=True),
+    )
 
     def __repr__(self):
         return "<Youth {} ({})>".format(self.name, self.group)
@@ -72,6 +80,9 @@ class SkillRecord(db.Model):
     scouter_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     skill_id = db.Column(db.Integer, db.ForeignKey("skill.id"))
 
+    # TODO There should be a unique constraint on skill_id and youth id
+
+    scouter = db.relationship("User", backref="skillrecord", lazy=True, uselist=False)
     skill = db.relationship("Skill", backref="skillrecord", lazy=True, uselist=False)
 
     def __repr__(self):

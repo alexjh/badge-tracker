@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Skill: 
+	<a href="{{ url_for('skill', skill_id=skill_record.skill.id)}}">
+		{{skill_record.skill.description}}
+	</a>
+</h1>
+    <p>Date: {{skill_record.timestamp}}</p>
+    <p>Scouter: 
+    <a href="{{ url_for('user', username=skill_record.scouter.username) }}">
+	    {{skill_record.scouter.username}}
+    </a>
+    </p>
+    <p>Notes: {{skill_record.notes}}</p>
+    <p>Participants:
+    <ul>
+        {% for y in skill_record.youth %}
+            <li>
+                <a href="{{ url_for('youth_details', youth_id=y.id) }}">
+                    {{ y.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+    </p>
+{% endblock %}

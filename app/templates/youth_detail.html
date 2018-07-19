@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Name: {{youth.name}}</h1>
+    <p>Group: {{youth.group.name}}</p>
+    <p>Badges:
+    <ul>
+    {% for p in youth.badgeprogress %}
+	    <li>
+	    <a href="{{ url_for('badge', badge_id=p.badge.id) }}">
+		    {{ p.badge.description }} - level {{ p.badge.level }}: {{ p.badge_state.value }}
+	    </a>
+	    </li>
+    {% endfor %}
+    </ul>
+    </p>
+    <p>Skills:
+    <ul>
+    {% for skill_record in youth.skill_records %}
+    <li>
+        <a href="{{ url_for('skill', skill_id=skill_record.skill.id)}}">{{ skill_record.skill.description[:-1] }}</a>
+        on
+        <a href="{{ url_for('skill_record', record_id=skill_record.id)}}">{{
+            skill_record.timestamp.date() }}</a>
+    </li>
+    {% endfor %}
+    </ul>
+    </p>
+{% endblock %}

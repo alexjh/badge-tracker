@@ -1,0 +1,50 @@
+{% extends "bootstrap/base.html" %}
+
+{% import "bootstrap/fixes.html" as fixes %}
+
+{% block head %}
+{{super()}}
+
+{#- Docs: http://pythonhosted.org/Flask-Bootstrap/macros.html#fixes
+The sample application already contains the required static files. #}
+{{fixes.ie8()}}
+{%- endblock %}
+
+{% block navbar %}
+    {{ super() }}
+    {#- {{nav.frontend_top.render()}} #}
+{% endblock %}
+
+{% block scripts %}
+  {{ super() }}
+  {{ datepicker.loader() }} 
+  {{ datepicker.picker(id=".dp") }}
+{% endblock %}
+
+{% block content %}
+    <h1>Record Skills</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.date.label }}<br>
+            {{ form.date(class='form-control dp') }}
+        </p>
+        <p>
+            {{ form.notes.label }}<br>
+            {{ form.notes(size=10) }}
+        </p>
+        <p>
+            {{ form.leader.label }}<br>
+            {{ form.leader }}
+        </p>
+        <p>
+            {{ form.participants.label }}<br>
+            {{ form.participants }}
+        </p>
+        <p>
+            {{ form.skills.label }}<br>
+            {{ form.skills(size=10) }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

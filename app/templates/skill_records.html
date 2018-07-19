@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <ul>
+    {% for record in skill_records %}
+	<li>
+	<a href="{{ url_for('skill_record', record_id=record.id) }}">
+		{{record.skill.description}} by {{record.scouter.name}} on {{record.timestamp}}
+	</a>
+	</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

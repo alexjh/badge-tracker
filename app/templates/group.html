@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Group: {{group.name}}</h1>
+    <p>Leaders:
+    <ul>
+        {% for user in group.users %}
+            <li><a href="{{ url_for('user', username=user.username) }}">{{user.username}}</a></li>
+        {% endfor %}
+    </ul>
+    </p>
+    <p>Youth:
+    <ul>
+	{% for youth in group.youth %}
+	    <li><a href="{{ url_for('youth_details', youth_id=youth.id) }}">{{youth.name}}</a></li>
+	{% endfor %}
+    </ul>
+    </p>
+{% endblock %}
