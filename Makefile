@@ -1,7 +1,7 @@
 .PHONY: run test build publish docker-run
 
 run:
-	FLASK_APP=badge_tracker.py flask run
+	FLASK_DEBUG=1 FLASK_APP=badge_tracker.py flask run
 
 TESTED_FILES = \
 	       app/routes.py \
