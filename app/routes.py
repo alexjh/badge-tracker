@@ -7,11 +7,56 @@ from app.models import Skill, Badge, SkillRecord
 from app.models import BadgeState, BadgeProgress
 
 
+def get_navbar(active):
+
+    nav_items = {
+        "Home": "/",
+        "Users": "/users",
+        "Groups": "/groups",
+        "Youth": "/youth",
+        "Skills": "/skills",
+        "Badges": "/badges",
+        "Record Skill": "/record_skill",
+    }
+
+    nav_list = ""
+    for name, link in nav_items.items():
+        if active == name:
+            nav_list += f"<li class='active'><a href='{link}'>{name}</a></li>"
+        else:
+            nav_list += f"<li><a href='{link}'>{name}</a></li>"
+
+    navbar = f"""
+             <nav class="navbar navbar-inverse navbar-fixed-top">
+                   <div class="container">
+                     <div class="navbar-header">
+                       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                         <span class="sr-only">Toggle navigation</span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                         <span class="icon-bar"></span>
+                       </button>
+                       <a class="navbar-brand" href="#">Badge Tracker</a>
+                     </div>
+                     <div id="navbar" class="collapse navbar-collapse">
+                       <ul class="nav navbar-nav">
+                       {nav_list}
+                       </ul>
+                     </div><!--/.nav-collapse -->
+                   </div>
+             </nav>
+             """
+
+    return navbar
+
+
 @app.route("/")
 @app.route("/index")
 def index():
     user = {"username": "Alex"}
-    return render_template("index.html", title="Home", user=user)
+    return render_template(
+        "index.html", title="Home", user=user, navbar=get_navbar("Home")
+    )
 
 
 @app.route("/login", methods=["GET", "POST"])
@@ -24,76 +69,102 @@ def login():
             )
         )
         return redirect(url_for("index"))
-    return render_template("login.html", title="Sign In", form=form)
+    return render_template(
+        "login.html", title="Sign In", form=form, navbar=get_navbar("Sign In")
+    )
 
 
 @app.route("/users")
 def users():
     users = User.query.all()
-    return render_template("users.html", title="Users", users=users)
+    return render_template(
+        "users.html", title="Users", users=users, navbar=get_navbar("Users")
+    )
 
 
 @app.route("/user/<username>")
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
-    return render_template("user.html", title=user.username, user=user)
+    return render_template(
+        "user.html", title=user.username, user=user, navbar=get_navbar("Users")
+    )
 
 
 @app.route("/groups")
 def groups():
     groups = Group.query.all()
-    return render_template("groups.html", title="Groups", groups=groups)
+    return render_template(
+        "groups.html", title="Groups", groups=groups, navbar=get_navbar("Groups")
+    )
 
 
 @app.route("/group/<group_id>")
 def group(group_id):
     group = Group.query.filter_by(id=group_id).first_or_404()
-    return render_template("group.html", title=group.name, group=group)
+    return render_template(
+        "group.html", title=group.name, group=group, navbar=get_navbar("Groups")
+    )
 
 
 @app.route("/youth")
 def youth():
     youth = Youth.query.all()
-    return render_template("youth.html", title="Youth", youth=youth)
+    return render_template(
+        "youth.html", title="Youth", youth=youth, navbar=get_navbar("Youth")
+    )
 
 
 @app.route("/skills")
 def skills():
     badges = Badge.query.all()
-    return render_template("skills.html", title="Skills", badges=badges)
+    return render_template(
+        "skills.html", title="Skills", badges=badges, navbar=get_navbar("Skills")
+    )
 
 
 @app.route("/badges")
 def badges():
     badges = Badge.query.all()
-    return render_template("badges.html", title="Badges", badges=badges)
+    return render_template(
+        "badges.html", title="Badges", badges=badges, navbar=get_navbar("Badges")
+    )
 
 
 @app.route("/badge_progress")
 def badge_progress():
     progress = BadgeProgress.query.all()
     return render_template(
-        "badge_progress.html", title="Badge Progress", progress=progress
+        "badge_progress.html",
+        title="Badge Progress",
+        progress=progress,
+        navbar=get_navbar("Badges"),
     )
 
 
 @app.route("/badge/<badge_id>")
 def badge(badge_id):
     badge = Badge.query.filter_by(id=badge_id).first_or_404()
-    return render_template("badge.html", title="Badge", badge=badge)
+    return render_template(
+        "badge.html", title="Badge", badge=badge, navbar=get_navbar("Badges")
+    )
 
 
 @app.route("/skill/<skill_id>")
 def skill(skill_id):
     skill = Skill.query.filter_by(id=skill_id).first_or_404()
-    return render_template("skill.html", title="Skill", skill=skill)
+    return render_template(
+        "skill.html", title="Skill", skill=skill, navbar=get_navbar("Skills")
+    )
 
 
 @app.route("/skill_records")
 def skill_records():
     skill_records = SkillRecord.query.all()
     return render_template(
-        "skill_records.html", title="Skill Records", skill_records=skill_records
+        "skill_records.html",
+        title="Skill Records",
+        skill_records=skill_records,
+        navbar=get_navbar("Skills"),
     )
 
 
@@ -101,7 +172,10 @@ def skill_records():
 def skill_record(record_id):
     skill_record = SkillRecord.query.filter_by(id=record_id).first_or_404()
     return render_template(
-        "skill_record.html", title="Skill Record", skill_record=skill_record
+        "skill_record.html",
+        title="Skill Record",
+        skill_record=skill_record,
+        navbar=get_navbar("Skill Record"),
     )
 
 
@@ -120,7 +194,6 @@ def get_youth_without_skill(youth, skill):
     for y in youth:
         for r in y.skill_records:
             if r.skill == skill:
-                print(f"{skill} already exists for {y}")
                 break
         else:
             print(f"{y} doesn't have {skill} yet")
@@ -187,7 +260,12 @@ def record_skill():
         flash("Your changes have been saved.")
         return redirect(url_for("skill_records"))
 
-    return render_template("record_skill.html", title="Add Skill Record", form=form)
+    return render_template(
+        "record_skill.html",
+        title="Add Skill Record",
+        form=form,
+        navbar=get_navbar("Record Skill"),
+    )
 
 
 def get_next_badges(youth):
@@ -237,15 +315,10 @@ def check_for_missing_badges(earned_skills, badges):
 def check_for_unearned_badges(skills, badges):
     warnings = []
 
-    # For each badge
-    #   Get its skill list
-    #   Compare with the earned skills
-    #   Add a warning for every extra skill in the badge list
-
     for badge in badges:
         badge_skills = {r.skill for r in badge.requirements}
 
-        for skill in badge_skills.intersection(set(skills)):
+        for skill in badge_skills.difference(skills):
             warnings.append(
                 f"{badge.description} {badge.level} completed but {skill} isn't earned"
             )
@@ -304,4 +377,5 @@ def youth_details(youth_id):
         youth=youth,
         next_badges=badges,
         warnings=warnings,
+        navbar=get_navbar("Youth"),
     )

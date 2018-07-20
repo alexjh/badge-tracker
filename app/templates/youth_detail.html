@@ -11,38 +11,30 @@ The sample application already contains the required static files. #}
 {%- endblock %}
 
 {% block navbar %}
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Badge Tracker</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="/users">Users</a></li>
-	  <li class="nav-item"><a class="nav-link" href="/groups">Groups</a></li>
-	  <li class="nav-item"><a class="nav-link" href="/youth">Youth</a></li>
-	  <li class="nav-item"><a class="nav-link" href="/skills">Skills</a></li>
-	  <li class="nav-item"><a class="nav-link" href="/badges">Badges</a></li>
-	  <li class="nav-item"><a class="nav-link" href="/record_skill">Record Skill</a></li>
-        </ul>
-    </div>
-    </nav>
+{{ navbar|safe }}
 {% endblock %}
 
 {% block content %}
-<div class="container">
-    <h1>Name: {{youth.name}}</h1>
+<div class="container theme-showcase">
+  <div class="jumbotron">
+    <h1>{{youth.name}}</h1>
+  </div>
+  <div class="page-header">
     <h2>Group: <a href="{{ url_for('group', group_id=youth.group.id) }}">{{youth.group.name}}</a></h2>
-    <p class="text-warning">Warnings:
+  </div>
+    {% if warnings %}
+  <div class="page-header">
+    <p class="text-danger">Warnings:
+  </div>
     <ul>
     {% for warning in warnings %}
-      <li class="text-warning">{{warning}}</li>
+      <li class="text-danger">{{warning}}</li>
     {% endfor %}
     </ul>
     </p>
+    {% endif %}
     <p>
-    <table class="table table-striped">
+    <table class="table table-striped table-hover table-condensed">
     <thead>
       <tr>
       <td>
@@ -54,13 +46,13 @@ The sample application already contains the required static files. #}
     <tr>
         <td>
 	    <a href="{{ url_for('badge', badge_id=p.badge.id) }}">
-		    {{ p.badge.description }} - level {{ p.badge.level }}: {{ p.badge_state.value }}
+		    {{ p.badge.description }} - {{ p.badge.level }}: {{ p.badge_state.value }}
 	    </a>
         </td>
     </tr>
     {% endfor %}
     </table>
-    <table class="table table-striped">
+    <table class="table table-striped table-hover table-condensed">
     <thead>
       <tr>
       <td>
@@ -88,7 +80,7 @@ The sample application already contains the required static files. #}
     {% endfor %}
     </table>
     </p>
-<table class="table table-striped">
+<table class="table table-striped table-hover table-condensed">
 <thead>
   <tr>
   <td>
