@@ -20,6 +20,9 @@
     [x] Earned badge without having all skills
     [x] Earned higher level badge without lower level
 
+  [ ] Separate db schema for groups by number, region, type
+  [ ] Stats on missing / close to achieved badges for groups
+  [ ] Leader nicknames, real names
 
 ## DB Layout
 
