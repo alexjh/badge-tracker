@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <ul>
+        {% for p in progress %}
+            <li>{{ p }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

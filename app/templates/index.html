@@ -1,5 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <h1>Hi, {{ user.username }}!</h1>
+	<h1>Badge Tracker</h1>
+	<ul>
+		<li><a href="{{ url_for('users') }}">Users</a></li>
+		<li><a href="{{ url_for('groups') }}">Groups</a></li>
+		<li><a href="{{ url_for('youth') }}">Youth</a></li>
+		<li><a href="{{ url_for('skills') }}">Skills</a></li>
+		<li><a href="{{ url_for('skill_records') }}">Skill Records</a></li>
+		<li><a href="{{ url_for('record_skill') }}">Record New Skills</a></li>
+		<li><a href="{{ url_for('badges') }}">Badges</a></li>
+	</ul>
 {% endblock %}

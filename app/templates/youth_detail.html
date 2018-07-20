@@ -1,29 +1,111 @@
-{% extends "base.html" %}
+{% extends "bootstrap/base.html" %}
+
+{% import "bootstrap/fixes.html" as fixes %}
+
+{% block head %}
+{{super()}}
+
+{#- Docs: http://pythonhosted.org/Flask-Bootstrap/macros.html#fixes
+The sample application already contains the required static files. #}
+{{fixes.ie8()}}
+{%- endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Badge Tracker</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="/users">Users</a></li>
+	  <li class="nav-item"><a class="nav-link" href="/groups">Groups</a></li>
+	  <li class="nav-item"><a class="nav-link" href="/youth">Youth</a></li>
+	  <li class="nav-item"><a class="nav-link" href="/skills">Skills</a></li>
+	  <li class="nav-item"><a class="nav-link" href="/badges">Badges</a></li>
+	  <li class="nav-item"><a class="nav-link" href="/record_skill">Record Skill</a></li>
+        </ul>
+    </div>
+    </nav>
+{% endblock %}
 
 {% block content %}
+<div class="container">
     <h1>Name: {{youth.name}}</h1>
-    <p>Group: {{youth.group.name}}</p>
-    <p>Badges:
+    <h2>Group: <a href="{{ url_for('group', group_id=youth.group.id) }}">{{youth.group.name}}</a></h2>
+    <p class="text-warning">Warnings:
     <ul>
-    {% for p in youth.badgeprogress %}
-	    <li>
-	    <a href="{{ url_for('badge', badge_id=p.badge.id) }}">
-		    {{ p.badge.description }} - level {{ p.badge.level }}: {{ p.badge_state.value }}
-	    </a>
-	    </li>
+    {% for warning in warnings %}
+      <li class="text-warning">{{warning}}</li>
     {% endfor %}
     </ul>
     </p>
-    <p>Skills:
-    <ul>
+    <p>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+      <td>
+      Badges:
+      </td>
+      </tr>
+    </thead>
+    {% for p in youth.badgeprogress %}
+    <tr>
+        <td>
+	    <a href="{{ url_for('badge', badge_id=p.badge.id) }}">
+		    {{ p.badge.description }} - level {{ p.badge.level }}: {{ p.badge_state.value }}
+	    </a>
+        </td>
+    </tr>
+    {% endfor %}
+    </table>
+    <table class="table table-striped">
+    <thead>
+      <tr>
+      <td>
+      Badge Progress:
+      </td>
+      </tr>
+    </thead>
+    {% for badge, details in next_badges.items() %}
+    <tr>
+      <td width="30%">
+        <label for="{{badge.description}}-{{badge.level}}">
+            <a href="{{ url_for('badge', badge_id=badge.id)}}">
+                {{badge.description}} - {{badge.level}}
+            </a>
+        </label>
+      </td>
+      <td>
+        <progress id="{{badge.description}}-{{badge.level}}"
+                  name="{{badge.description}}-{{badge.level}}"
+                  max="{{details[1]}}" value="{{details[0]}}">
+            {{details[0]}} of {{details[1]}}
+        </progress>
+      </td>
+    </tr>
+    {% endfor %}
+    </table>
+    </p>
+<table class="table table-striped">
+<thead>
+  <tr>
+  <td>
+  Skills:
+  </td>
+  </tr>
+</thead>
     {% for skill_record in youth.skill_records %}
-    <li>
+<tr>
+<td>
         <a href="{{ url_for('skill', skill_id=skill_record.skill.id)}}">{{ skill_record.skill.description[:-1] }}</a>
         on
         <a href="{{ url_for('skill_record', record_id=skill_record.id)}}">{{
             skill_record.timestamp.date() }}</a>
-    </li>
+</td>
+</tr>
     {% endfor %}
-    </ul>
-    </p>
+    </table>
+</div>
 {% endblock %}

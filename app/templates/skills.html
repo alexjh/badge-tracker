@@ -2,8 +2,15 @@
 
 {% block content %}
     <ul>
-        {% for skill in skills %}
-            <li><a href="{{ url_for('skill', skill_id=skill.id) }}">{{skill.description}}</a></li>
+        {% for badge in badges %}
+        <li>
+            <a href="{{ url_for('badge', badge_id=badge.id) }}">{{ badge.description }} - {{ badge.level }}</a>
+        <ul>
+          {% for r in badge.requirements %}
+              <li><a href="{{ url_for('skill', skill_id=r.skill.id) }}">{{r.skill.description}}</a></li>
+          {% endfor %}
+        </ul>
+        </li>
         {% endfor %}
     </ul>
 {% endblock %}

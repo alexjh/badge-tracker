@@ -128,6 +128,6 @@ class BadgeProgress(db.Model):
     youth = db.relationship("Youth", backref="badgeprogress", lazy=True, uselist=False)
 
     def __repr__(self):
-        return "<{}'s Badge Progress for {}: {}>".format(
-            self.youth.name, self.badge.description, self.badge_state
+        return "<{}'s Badge Progress for {} - {}: {}>".format(
+            self.youth.name, self.badge.description, self.badge.level, self.badge_state
         )

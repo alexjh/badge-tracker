@@ -59,8 +59,8 @@ def youth():
 
 @app.route("/skills")
 def skills():
-    skills = Skill.query.all()
-    return render_template("skills.html", title="Skills", skills=skills)
+    badges = Badge.query.all()
+    return render_template("skills.html", title="Skills", badges=badges)
 
 
 @app.route("/badges")
@@ -112,10 +112,6 @@ def get_participants(form):
 
 def get_skills(form):
     return Skill.query.filter(or_(Skill.id == v for v in form.skills.data)).all()
-
-
-def get_badge_completion(form):
-    return
 
 
 def get_youth_without_skill(youth, skill):
@@ -194,7 +190,118 @@ def record_skill():
     return render_template("record_skill.html", title="Add Skill Record", form=form)
 
 
+def get_next_badges(youth):
+    # Returns a dict of {badge: (earned, total)} for the next level of badge
+    # that hasn't been achieved yet.
+    badges = Badge.query.order_by(Badge.description, Badge.level).all()
+    youth_badges = [progress.badge for progress in youth.badgeprogress]
+    youth_skills = {record.skill for record in youth.skill_records}
+
+    # Add badge to next_badges only if there isn't already a lower level of
+    # this already added
+    next_badges = {}
+
+    for badge in badges:
+        if badge in youth_badges:
+            continue
+
+        descriptions = [badge.description for badge in next_badges.keys()]
+
+        if badge.description in descriptions:
+            continue
+
+        skills = {requirement.skill for requirement in badge.requirements}
+        earned_skills = skills.intersection(youth_skills)
+        next_badges[badge] = (len(earned_skills), len(skills))
+
+    return next_badges
+
+
+def check_for_missing_badges(earned_skills, badges):
+    warnings = []
+
+    all_badges = Badge.query.all()
+
+    # Check unearned badges
+    for badge in set(all_badges).difference(badges):
+        skills = {r.skill for r in badge.requirements}
+
+        if set(earned_skills).issuperset(skills):
+            warnings.append(
+                f"Skills completed for {badge.description} {badge.level} but badge isn't earned"
+            )
+
+    return warnings
+
+
+def check_for_unearned_badges(skills, badges):
+    warnings = []
+
+    # For each badge
+    #   Get its skill list
+    #   Compare with the earned skills
+    #   Add a warning for every extra skill in the badge list
+
+    for badge in badges:
+        badge_skills = {r.skill for r in badge.requirements}
+
+        for skill in badge_skills.intersection(set(skills)):
+            warnings.append(
+                f"{badge.description} {badge.level} completed but {skill} isn't earned"
+            )
+    return warnings
+
+
+def check_for_skipped_badges(badges):
+    warnings = []
+
+    earned = {}
+
+    for badge in badges:
+        if badge.description in earned.keys():
+            earned[badge.description].append(badge.level)
+        else:
+            earned[badge.description] = [badge.level]
+
+    # Earned higher level badge without lower level
+    for badge, levels in earned.items():
+        if len(levels) != sorted(levels)[-1]:
+            # TODO more details about missing level
+            warnings.append(f"{badge} has not earned all prior levels")
+
+    return warnings
+
+
+def validate_badge_information(youth):
+    youth_skills = {record.skill for record in youth.skill_records}
+    youth_badges = [progress.badge for progress in youth.badgeprogress]
+
+    warnings = []
+
+    skipped = check_for_skipped_badges(youth_badges)
+    if skipped is not None:
+        warnings.extend(skipped)
+
+    missing = check_for_missing_badges(youth_skills, youth_badges)
+    if missing is not None:
+        warnings.extend(missing)
+
+    unearned = check_for_unearned_badges(youth_skills, youth_badges)
+    if unearned is not None:
+        warnings.extend(unearned)
+
+    return warnings
+
+
 @app.route("/youth/<youth_id>")
 def youth_details(youth_id):
     youth = Youth.query.filter_by(id=youth_id).first_or_404()
-    return render_template("youth_detail.html", title="Youth", youth=youth)
+    badges = get_next_badges(youth)
+    warnings = validate_badge_information(youth)
+    return render_template(
+        "youth_detail.html",
+        title="Youth Details",
+        youth=youth,
+        next_badges=badges,
+        warnings=warnings,
+    )

@@ -1,15 +1,24 @@
 # Badge Tracker
 
 * TODO
-  [ ] User list
-  [ ] Group list
-  [ ] Youth list
+  [x] User list
+  [x] Group list
+  [x] Youth list
       * List badges, skills
-  [ ] Skill list
-  [ ] Badge list
-  [ ] Skill Record
-  [ ] Add user, group, youth
-  [ ] Badge Progress for youth
+  [x] Skill list
+  [x] Badge list
+  [x] Skill Record
+  [x] Add user, group, youth
+  [x] Badge Progress for youth
+
+  [ ] Merge requirements - paddling, sailing, aquatic
+  [ ] Add camp record
+  [ ] Handle deleting skill records
+    [ ] Cascade to youth's skills
+  [ ] Badge consistency warnings
+    [x] Earned all skills without having badge
+    [x] Earned badge without having all skills
+    [x] Earned higher level badge without lower level
 
 
 ## DB Layout
