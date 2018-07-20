@@ -1,27 +1,61 @@
-{% extends "base.html" %}
+{% extends "bootstrap/base.html" %}
+
+{% import "bootstrap/fixes.html" as fixes %}
+
+{% block head %}
+{{super()}}
+
+{#- Docs: http://pythonhosted.org/Flask-Bootstrap/macros.html#fixes
+The sample application already contains the required static files. #}
+{{fixes.ie8()}}
+{%- endblock %}
+
+{% block navbar %}
+{{ navbar|safe }}
+{% endblock %}
 
 {% block content %}
-<h1>Skill: 
-	<a href="{{ url_for('skill', skill_id=skill_record.skill.id)}}">
-		{{skill_record.skill.description}}
-	</a>
-</h1>
-    <p>Date: {{skill_record.timestamp}}</p>
-    <p>Scouter: 
-    <a href="{{ url_for('user', username=skill_record.scouter.username) }}">
-	    {{skill_record.scouter.username}}
-    </a>
-    </p>
-    <p>Notes: {{skill_record.notes}}</p>
-    <p>Participants:
-    <ul>
-        {% for y in skill_record.youth %}
-            <li>
-                <a href="{{ url_for('youth_details', youth_id=y.id) }}">
-                    {{ y.name }}
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
-    </p>
+<div class="container theme-showcase">
+	<div class="jumbotron">
+		<h1>Skill: 
+			<a href="{{ url_for('skill', skill_id=skill_record.skill.id)}}">
+				{{skill_record.skill.description}}
+			</a>
+		</h1>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			Date: {{skill_record.timestamp}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			Scouter: 
+			<a href="{{ url_for('user', username=skill_record.scouter.username) }}">
+				{{skill_record.scouter.username}}
+			</a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			Notes: {{skill_record.notes}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			Participants:
+			<table class="table table-striped table-hover table-condensed">
+				{% for y in skill_record.youth %}
+				<tr>
+					<td>
+						<a href="{{ url_for('youth_details', youth_id=y.id) }}">
+							{{ y.name }}
+						</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
 {% endblock %}

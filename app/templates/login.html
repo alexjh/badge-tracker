@@ -1,4 +1,18 @@
-{% extends "base.html" %}
+{% extends "bootstrap/base.html" %}
+
+{% import "bootstrap/fixes.html" as fixes %}
+
+{% block head %}
+{{super()}}
+
+{#- Docs: http://pythonhosted.org/Flask-Bootstrap/macros.html#fixes
+The sample application already contains the required static files. #}
+{{fixes.ie8()}}
+{%- endblock %}
+
+{% block navbar %}
+{{ navbar|safe }}
+{% endblock %}
 
 {% block content %}
     <h1>Sign In</h1>

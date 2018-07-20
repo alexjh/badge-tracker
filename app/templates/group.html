@@ -1,19 +1,55 @@
-{% extends "base.html" %}
+{% extends "bootstrap/base.html" %}
+
+{% import "bootstrap/fixes.html" as fixes %}
+
+{% block head %}
+{{super()}}
+
+{#- Docs: http://pythonhosted.org/Flask-Bootstrap/macros.html#fixes
+The sample application already contains the required static files. #}
+{{fixes.ie8()}}
+{%- endblock %}
+
+{% block navbar %}
+{{ navbar|safe }}
+{% endblock %}
 
 {% block content %}
-    <h1>Group: {{group.name}}</h1>
-    <p>Leaders:
-    <ul>
-        {% for user in group.users %}
-            <li><a href="{{ url_for('user', username=user.username) }}">{{user.username}}</a></li>
-        {% endfor %}
-    </ul>
-    </p>
-    <p>Youth:
-    <ul>
-	{% for youth in group.youth %}
-	    <li><a href="{{ url_for('youth_details', youth_id=youth.id) }}">{{youth.name}}</a></li>
-	{% endfor %}
-    </ul>
-    </p>
+<div class="container theme-showcase">
+	<div class="jumbotron">
+		<h1>Group: {{group.name}}</h1>
+	</div>
+	<div class="page-header">
+		Leaders:
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-striped table-hover table-condensed">
+				{% for user in group.users %}
+				<tr>
+					<td>
+						<a href="{{ url_for('user', username=user.username) }}">{{user.username}}</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+	<div class="page-header">
+		Youth:
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-striped table-hover table-condensed">
+				{% for youth in group.youth %}
+				<tr>
+					<td>
+						<a href="{{ url_for('youth_details', youth_id=youth.id) }}">{{youth.name}}</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
 {% endblock %}

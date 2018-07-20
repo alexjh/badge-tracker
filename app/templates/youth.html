@@ -1,10 +1,49 @@
-{% extends "base.html" %}
+{% extends "bootstrap/base.html" %}
+
+{% import "bootstrap/fixes.html" as fixes %}
+
+{% block head %}
+{{super()}}
+
+{#- Docs: http://pythonhosted.org/Flask-Bootstrap/macros.html#fixes
+The sample application already contains the required static files. #}
+{{fixes.ie8()}}
+{%- endblock %}
+
+{% block navbar %}
+{{ navbar|safe }}
+{% endblock %}
 
 {% block content %}
-    <ul>
-    {% for y in youth %}
-      <li><a href="{{ url_for('youth_details', youth_id=y.id) }}">{{y.name}}</a></li>
-    {% endfor %}
-    </ul>
-    </p>
+<div class="container theme-showcase">
+	<div class="jumbotron">
+		<h1>Youth</h1>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<table class="table table-striped table-hover table-condensed">
+				<thead>
+				<tr>
+					<td>
+						Name
+					</td>
+					<td>
+						Group
+					</td>
+				</tr>
+				</thead>
+				{% for y in youth %}
+				<tr>
+					<td>
+						<a href="{{ url_for('youth_details', youth_id=y.id) }}">{{y.name}}</a>
+					</td>
+					<td>
+						<a href="{{ url_for('group', group_id=y.group.id) }}">{{y.group.name}}</a>
+					</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+</div>
 {% endblock %}

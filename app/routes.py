@@ -10,13 +10,14 @@ from app.models import BadgeState, BadgeProgress
 def get_navbar(active):
 
     nav_items = {
-        "Home": "/",
         "Users": "/users",
         "Groups": "/groups",
         "Youth": "/youth",
         "Skills": "/skills",
-        "Badges": "/badges",
+        "Skill Records": "/skill_records",
         "Record Skill": "/record_skill",
+        "Badges": "/badges",
+        "Badge Progress": "/badge_progress",
     }
 
     nav_list = ""
@@ -36,7 +37,7 @@ def get_navbar(active):
                          <span class="icon-bar"></span>
                          <span class="icon-bar"></span>
                        </button>
-                       <a class="navbar-brand" href="#">Badge Tracker</a>
+                       <a class="navbar-brand" href="/">Badge Tracker</a>
                      </div>
                      <div id="navbar" class="collapse navbar-collapse">
                        <ul class="nav navbar-nav">
@@ -85,8 +86,13 @@ def users():
 @app.route("/user/<username>")
 def user(username):
     user = User.query.filter_by(username=username).first_or_404()
+    records = get_skill_records_by_date(user)
     return render_template(
-        "user.html", title=user.username, user=user, navbar=get_navbar("Users")
+        "user.html",
+        title=user.username,
+        user=user,
+        records=records,
+        navbar=get_navbar("Users"),
     )
 
 
@@ -122,11 +128,29 @@ def skills():
     )
 
 
+def get_badges_by_type():
+    badges = Badge.query.all()
+
+    badge_types = {}
+
+    for badge in badges:
+        if badge.description not in badge_types:
+            badge_types[badge.description] = [badge]
+        else:
+            badge_types[badge.description].append(badge)
+
+    return badge_types
+
+
 @app.route("/badges")
 def badges():
-    badges = Badge.query.all()
+    badge_types = get_badges_by_type()
+
     return render_template(
-        "badges.html", title="Badges", badges=badges, navbar=get_navbar("Badges")
+        "badges.html",
+        title="Badges",
+        badge_types=badge_types,
+        navbar=get_navbar("Badges"),
     )
 
 
@@ -157,13 +181,35 @@ def skill(skill_id):
     )
 
 
+def get_skill_records_by_date(scouter=None):
+
+    if scouter is not None:
+        skill_records = (
+            SkillRecord.query.filter_by(scouter=scouter)
+            .order_by(SkillRecord.timestamp)
+            .all()
+        )
+    else:
+        skill_records = SkillRecord.query.order_by(SkillRecord.timestamp).all()
+
+    records = {}
+
+    for record in skill_records:
+        if record.timestamp not in records:
+            records[record.timestamp] = [record]
+        else:
+            records[record.timestamp].append(record)
+
+    return records
+
+
 @app.route("/skill_records")
 def skill_records():
-    skill_records = SkillRecord.query.all()
+
     return render_template(
         "skill_records.html",
         title="Skill Records",
-        skill_records=skill_records,
+        records=get_skill_records_by_date(),
         navbar=get_navbar("Skills"),
     )
 
@@ -371,11 +417,22 @@ def youth_details(youth_id):
     youth = Youth.query.filter_by(id=youth_id).first_or_404()
     badges = get_next_badges(youth)
     warnings = validate_badge_information(youth)
+
+    skill_records = {}
+
+    for r in youth.skill_records:
+        for requirement in r.skill.requirements:
+            if requirement.badge.description not in skill_records:
+                skill_records[requirement.badge.description] = [r]
+            else:
+                skill_records[requirement.badge.description].append(r)
+
     return render_template(
         "youth_detail.html",
         title="Youth Details",
         youth=youth,
         next_badges=badges,
         warnings=warnings,
+        skill_records=skill_records,
         navbar=get_navbar("Youth"),
     )

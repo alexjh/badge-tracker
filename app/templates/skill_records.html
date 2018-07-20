@@ -1,13 +1,56 @@
-{% extends "base.html" %}
+{% extends "bootstrap/base.html" %}
+
+{% import "bootstrap/fixes.html" as fixes %}
+
+{% block head %}
+{{super()}}
+
+{#- Docs: http://pythonhosted.org/Flask-Bootstrap/macros.html#fixes
+The sample application already contains the required static files. #}
+{{fixes.ie8()}}
+{%- endblock %}
+
+{% block navbar %}
+{{ navbar|safe }}
+{% endblock %}
 
 {% block content %}
-    <ul>
-    {% for record in skill_records %}
-	<li>
-	<a href="{{ url_for('skill_record', record_id=record.id) }}">
-		{{record.skill.description}} by {{record.scouter.name}} on {{record.timestamp}}
-	</a>
-	</li>
-        {% endfor %}
-    </ul>
+<div class="container theme-showcase">
+  <div class="jumbotron">
+    <h1>Skill Records</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      {% for timestamp, skill_records in records.items() %}
+      <div class="panel panel-primary accordion">
+        <div class="panel-heading">
+          <a class="accordion-toggle" style="color:white;"
+            data-toggle="collapse" data-parent=".accordion"
+            href="#collapse{{timestamp.timestamp()|replace(".", "_")}}">
+            {{ timestamp.date() }}
+            <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+            <span class="sr-only">Expand...</span>
+          </a>
+        </div>
+        <div id="collapse{{timestamp.timestamp()|replace(".", "_")}}" class="panel-collapse collapse">
+          <div class="panel-body">
+            <table class="table table-striped table-hover table-condensed">
+              {% for record in skill_records %}
+              <tr>
+                <td>
+                  <a href="{{ url_for('skill_record', record_id=record.id) }}">
+                    {{record.skill.description[:-1]}} by
+                    {{record.scouter.username}}
+                  </a>
+                </td>
+              </tr>
+              {% endfor %}
+            </table>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
 {% endblock %}
