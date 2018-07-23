@@ -23,6 +23,7 @@
   [ ] Separate db schema for groups by number, region, type
   [ ] Stats on missing / close to achieved badges for groups
   [ ] Leader nicknames, real names
+  [ ] Use Flask-Nav to generate nicer navbar
 
 ## DB Layout
 
